@@ -144,12 +144,12 @@ export default function Profile({ match }) {
           </ListItem>
         </List>
         <MyOrders/>
-        <Paper className={classes.auctions} elevation={4}>
-          <Typography type="title" color="primary">
-              Auctions you bid in
-          </Typography>
-          <Auctions  auctions={auctions} removeAuction={removeAuction} />
-        </Paper>
+        {/*<Paper className={classes.auctions} elevation={4}>*/}
+        {/*  <Typography type="title" color="primary">*/}
+        {/*      Auctions you bid in*/}
+        {/*  </Typography>*/}
+        {/*  <Auctions  auctions={auctions} removeAuction={removeAuction} />*/}
+        {/*</Paper>*/}
       </Paper>
     )
 }

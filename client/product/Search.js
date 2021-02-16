@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import {makeStyles} from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
@@ -7,15 +7,17 @@ import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import SearchIcon from '@material-ui/icons/Search'
-import {list} from './api-product.js'
+import {list, listCategories, listLatest} from './api-product.js'
+import Categories from './../product/Categories'
+
 import Products from './Products'
 
 const useStyles = makeStyles(theme => ({
   card: {
     margin: 'auto',
     textAlign: 'center',
-    paddingTop: 10,
-    backgroundColor: '#80808024'
+    // paddingTop: 10,
+    // backgroundColor: '#80808024'
   },
   menu: {
     width: 200,
@@ -25,24 +27,29 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
     width: 130,
     verticalAlign: 'bottom',
-    marginBottom: '20px'
+    marginBottom: theme.spacing(2)
   },
   searchField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 300,
-    marginBottom: '20px'
+    marginBottom: theme.spacing(2)
+
+    // marginBottom: '20px'
   },
   searchButton: {
     minWidth: '20px',
-    height: '30px',
+    height: theme.spacing(3),
     padding: '0 8px',
-    marginBottom: '20px'
+    marginBottom: theme.spacing(2)
+
+    // marginBottom: '20px'
   }
 }))
 
 export default function Search(props) {
   const classes = useStyles()
+
   const [values, setValues] = useState({
       category: '',
       search: '',
@@ -75,29 +82,6 @@ export default function Search(props) {
   }
     return (
       <div>
-        <Card className={classes.card}>
-          <TextField
-            id="select-category"
-            select
-            label="Select category"
-            className={classes.textField}
-            value={values.category}
-            onChange={handleChange('category')}
-            SelectProps={{
-              MenuProps: {
-                className: classes.menu,
-              },
-            }}
-            margin="normal">
-            <MenuItem value="All">
-              All
-            </MenuItem>
-            { props.categories.map(option => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
-          </TextField>
           <TextField
             id="search"
             label="Search products"
@@ -112,10 +96,9 @@ export default function Search(props) {
           </Button>
           <Divider/>
           <Products products={values.results} searched={values.searched}/>
-        </Card>
       </div>
     )
 }
 Search.propTypes = {
-  categories: PropTypes.array.isRequired
+  // categories: PropTypes.array.isRequired
 }

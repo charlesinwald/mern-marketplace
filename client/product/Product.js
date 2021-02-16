@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     color: '#375a53',
   },
   media: {
-    height: 200,
+    height: theme.spacing(50),
     display: 'inline-block',
     width: '50%',
     marginLeft: '24px'

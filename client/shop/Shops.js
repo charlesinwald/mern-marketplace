@@ -65,26 +65,30 @@ export default function Shops(){
         <Typography type="title" className={classes.title}>
           All Shops
         </Typography>
-        <List dense>
-          {shops.map((shop, i) => {
-            return <Link to={"/shops/"+shop._id} key={i}>
-              <Divider/>
-              <ListItem button>
-                <ListItemAvatar>
-                  <Avatar className={classes.avatar}  src={'/api/shops/logo/'+shop._id+"?" + new Date().getTime()}/>
-                </ListItemAvatar>
-                <div className={classes.details}>
-                  <Typography type="headline" component="h2" color="primary" className={classes.shopTitle}>
-                    {shop.name}
-                  </Typography>
-                  <Typography type="subheading" component="h4" className={classes.subheading}>
-                    {shop.description}
-                  </Typography>
-                </div>
-              </ListItem>
-              <Divider/>
-            </Link>})}
-        </List>
+        {shops ?
+            <List dense>
+              {shops.map((shop, i) => {
+                return <Link to={"/shops/" + shop._id} key={i}>
+                  <Divider/>
+                  <ListItem button>
+                    <ListItemAvatar>
+                      <Avatar className={classes.avatar}
+                              src={'/api/shops/logo/' + shop._id + "?" + new Date().getTime()}/>
+                    </ListItemAvatar>
+                    <div className={classes.details}>
+                      <Typography type="headline" component="h2" color="primary" className={classes.shopTitle}>
+                        {shop.name}
+                      </Typography>
+                      <Typography type="subheading" component="h4" className={classes.subheading}>
+                        {shop.description}
+                      </Typography>
+                    </div>
+                  </ListItem>
+                  <Divider/>
+                </Link>
+              })}
+            </List> : <Typography>Loading</Typography>
+        }
       </Paper>
     </div>)
 }

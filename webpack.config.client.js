@@ -26,10 +26,17 @@ const config = {
                 ]
             },
             {
-                test: /\.(ttf|eot|svg|gif|jpg|png)(\?[\s\S]+)?$/,
+                test: /\.(ttf|eot|svg|gif|jpg|png|webm|mp4)(\?[\s\S]+)?$/,
                 use: 'file-loader'
-            }
+            },
+            // {
+            //     test: /\.(mp4|webm)$/,
+            //     use: {
+            //         loader: 'file-loader',
+            //     }
+            // }
         ]
+
     },  plugins: [
           new webpack.HotModuleReplacementPlugin(),
           new webpack.NoEmitOnErrorsPlugin()

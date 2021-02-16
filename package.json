@@ -1,8 +1,8 @@
 {
-  "name": "mern-marketplace",
+  "name": "Kashew",
   "version": "2.0.0",
-  "description": "A MERN stack based online marketplace application",
-  "author": "Shama Hoque",
+  "description": "You buy furniture. We plant trees.",
+  "author": "Charles Inwald",
   "license": "MIT",
   "keywords": [
     "react",
@@ -11,11 +11,6 @@
     "node",
     "mern"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shamahoque/mern-marketplace.git"
-  },
-  "homepage": "https://github.com/shamahoque/mern-marketplace",
   "main": "./dist/server.generated.js",
   "scripts": {
     "development": "nodemon",
@@ -50,12 +45,14 @@
     "express": "4.17.1",
     "express-jwt": "5.3.1",
     "formidable": "1.2.2",
+    "framer-motion": "^3.3.0",
     "helmet": "3.22.0",
     "jsonwebtoken": "8.5.1",
     "lodash": "4.17.15",
     "mongoose": "5.9.7",
     "query-string": "6.11.1",
     "react": "16.13.1",
+    "react-countup": "^4.3.3",
     "react-dom": "16.13.1",
     "react-hot-loader": "4.12.20",
     "react-router": "5.1.2",

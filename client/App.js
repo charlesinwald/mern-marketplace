@@ -4,7 +4,7 @@ import {BrowserRouter} from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/styles'
 import theme from './theme'
 import { hot } from 'react-hot-loader'
-
+import {CssBaseline} from "@material-ui/core";
 const App = () => {
   React.useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side')
