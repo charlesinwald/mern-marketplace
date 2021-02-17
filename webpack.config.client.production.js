@@ -1,6 +1,6 @@
 const path = require('path')
 const CURRENT_WORKING_DIR = process.cwd()
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = {
     mode: "production",
     entry: [
@@ -11,6 +11,7 @@ const config = {
         filename: 'bundle.js',
         publicPath: "/dist/"
     },
+    plugins: [new HtmlWebpackPlugin()],
     module: {
         rules: [
             {
