@@ -12,6 +12,7 @@ import shopRoutes from './routes/shop.routes'
 import productRoutes from './routes/product.routes'
 import orderRoutes from './routes/order.routes'
 import auctionRoutes from './routes/auction.routes'
+// import csp from 'express-csp-header';
 
 // modules for server side rendering
 import React from 'react'
@@ -40,10 +41,20 @@ app.use(compress())
 // secure apps by setting various HTTP headers
 app.use(helmet())
 // enable CORS - Cross Origin Resource Sharing
-app.use(cors())
+let corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions))
 
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 
+// app.use(csp({
+//   policies: {
+//     'default-src': [csp.NONE],
+//     'img-src': [csp.SELF],
+//   }
+// }));
 // mount routes
 app.use('/', userRoutes)
 app.use('/', authRoutes)

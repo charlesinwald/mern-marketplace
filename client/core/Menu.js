@@ -33,7 +33,7 @@ const Menu = withRouter(({history}) => (
     <Toolbar>
       <Link to="/">
         <IconButton>
-          <img src={kashewLogo}/>
+          <img src='https://res.cloudinary.com/dvf1zpetn/image/upload/v1613623473/b0c22e909e91bb7a8734e5c2946b42f4_uqokys.png'/>
         </IconButton>
       </Link>
       {/*</Image>*/}

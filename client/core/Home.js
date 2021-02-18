@@ -102,7 +102,7 @@ export default function Home(){
                 </Link>
             </Grid>
             <Grid item xs={3}>
-              <img src={furniturevector}/>
+              <img src='https://res.cloudinary.com/dvf1zpetn/image/upload/v1613623473/54d33434ba896f16bbc9052a2c250f8d_hpjqh2.svg'/>
             </Grid>
             <Grid item xs={6}>
             </Grid>
