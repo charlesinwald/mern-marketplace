@@ -15,6 +15,11 @@ import kashewLogo from './../assets/images/kashewlogo.png'
 import Grid from "@material-ui/core/Grid";
 import Search from "../product/Search";
 import * as url from "url";
+import {update} from "../user/api-user";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
+import CardContent from "@material-ui/core/CardContent";
+
 
 const isActive = (history, path) => {
   if (history.location.pathname == path)
@@ -28,6 +33,9 @@ const isPartActive = (history, path) => {
   else
     return {color: '#ffffff'}
 }
+
+
+
 const Menu = withRouter(({history}) => (
   <AppBar position="static">
     <Toolbar>
@@ -82,8 +90,13 @@ const Menu = withRouter(({history}) => (
       }
       {
         auth.isAuthenticated() && (<span>
+
+
           {auth.isAuthenticated().user.seller && (<>
-            <Link to="/seller/shops"><Button style={isPartActive(history, "/seller/")}>My Listings</Button></Link>
+                <Button color="inherit" onClick={() => {
+
+                }}>Sign out</Button>
+                <Link to="/seller/shops"><Button style={isPartActive(history, "/seller/")}>My Listings</Button></Link>
             {/*<Link to="/myauctions"><Button style={isPartActive(history, "/myauctions")}>My Auctions</Button></Link>*/}
             </>
           )}
@@ -91,8 +104,24 @@ const Menu = withRouter(({history}) => (
             <Button style={isActive(history, "/user/" + auth.isAuthenticated().user._id)}>My Profile</Button>
           </Link>
           <Button color="inherit" onClick={() => {
-              auth.clearJWT(() => history.push('/'))
-            }}>Sign out</Button>
+            let options = {
+              seller: false
+            }
+            const jwt = auth.isAuthenticated();
+            update({
+              userId: auth.isAuthenticated().user._id
+            }, {
+              t: jwt.token
+            }, options).then((data) => {
+              if (data && data.error) {
+                console.log(data);
+              } else {
+                auth.updateUser(data, ()=>{
+                  console.log(data);
+                })
+              }
+            })
+            }}>Switch to Buying</Button>
         </span>)
       }
       </span></div>

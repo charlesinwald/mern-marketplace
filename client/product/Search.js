@@ -16,8 +16,8 @@ const useStyles = makeStyles(theme => ({
   card: {
     margin: 'auto',
     textAlign: 'center',
-    // paddingTop: 10,
-    // backgroundColor: '#80808024'
+    paddingTop: 10,
+    backgroundColor: '#80808024'
   },
   menu: {
     width: 200,
@@ -27,26 +27,21 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(1),
     width: 130,
     verticalAlign: 'bottom',
-    marginBottom: theme.spacing(2)
+    marginBottom: '20px'
   },
   searchField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 300,
-    marginBottom: theme.spacing(2)
-
-    // marginBottom: '20px'
+    marginBottom: '20px'
   },
   searchButton: {
     minWidth: '20px',
-    height: theme.spacing(3),
+    height: '30px',
     padding: '0 8px',
-    marginBottom: theme.spacing(2)
-
-    // marginBottom: '20px'
+    marginBottom: '20px'
   }
 }))
-
 export default function Search(props) {
   const classes = useStyles()
 

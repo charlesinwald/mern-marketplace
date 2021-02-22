@@ -1,19 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import Suggestions from './../product/Suggestions'
 import {listLatest, listCategories} from './../product/api-product.js'
-import Search from './../product/Search'
-import Categories from './../product/Categories'
-import kashewLogo from './../assets/images/kashewlogo.png'
-import couch from './../assets/images/couch.png'
-import growingTree from './../assets/images/growingtree.gif'
-import { motion } from 'framer-motion'
-import treebackground from './../assets/images/treebackground.mp4'
 import {Button, Card, CardContent, Typography} from "@material-ui/core";
 import {Link} from "react-router-dom";
-import furniturevector from "./../assets/images/furniturevector.svg"
+import { IntercomProvider, useIntercom } from 'react-use-intercom';
 import CountUp from 'react-countup';
+// import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -42,6 +35,9 @@ const useStyles = makeStyles(theme => ({
   },
   latestpickscard: {
       margin: theme.spacing(3)
+  },
+  landinggraphic: {
+      maxWidth: theme.spacing(60),
   }
 }))
 
@@ -51,6 +47,7 @@ export default function Home(){
   const [suggestionTitle, setSuggestionTitle] = useState("Latest Products")
   const [categories, setCategories] = useState([])
   const [suggestions, setSuggestions] = useState([])
+  const { boot, shutdown, hide, show, update } = useIntercom();
 
   useEffect(() => {
     const abortController = new AbortController()
@@ -101,10 +98,21 @@ export default function Home(){
                   <Button variant='contained' color='secondary' size='large' className={classes.shopButton}>Browse Selection</Button>
                 </Link>
             </Grid>
-            <Grid item xs={3}>
-              <img src='https://res.cloudinary.com/dvf1zpetn/image/upload/v1613623473/54d33434ba896f16bbc9052a2c250f8d_hpjqh2.svg'/>
-            </Grid>
             <Grid item xs={6}>
+               <button onClick={boot}>Boot intercom! ☎️</button>;
+              {/*<CarouselProvider*/}
+              {/*    naturalSlideWidth={100}*/}
+              {/*    naturalSlideHeight={125}*/}
+              {/*    totalSlides={3}*/}
+              {/*>*/}
+              {/*  <Slider>*/}
+              {/*    <Slide index={0}>I am the first Slide.</Slide>*/}
+              {/*    <Slide index={1}>I am the second Slide.</Slide>*/}
+              {/*    <Slide index={2}>I am the third Slide.</Slide>*/}
+              {/*  </Slider>*/}
+              {/*  <ButtonBack>Back</ButtonBack>*/}
+              {/*  <ButtonNext>Next</ButtonNext>*/}
+              {/*</CarouselProvider>*/}
             </Grid>
         </Grid>
       </div>
