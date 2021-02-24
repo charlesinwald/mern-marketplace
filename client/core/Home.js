@@ -6,6 +6,7 @@ import {Button, Card, CardContent, Typography} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import { IntercomProvider, useIntercom } from 'react-use-intercom';
 import CountUp from 'react-countup';
+import treebackground from '../assets/images/treebackground.mp4'
 // import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 
 const useStyles = makeStyles(theme => ({
@@ -83,7 +84,7 @@ export default function Home(){
       <div className={classes.root}>
         {/*<Card>*/}
         {/*<video autoPlay muted loop id="treebackground" className={classes.videobackground}>*/}
-        {/*  <source src={treebackground} type="video/webm"/>*/}
+        {/*  <source src={treebackground} type="video/mp4"/>*/}
         {/*</video>*/}
           <Grid container
                 spacing={4}>
@@ -99,20 +100,7 @@ export default function Home(){
                 </Link>
             </Grid>
             <Grid item xs={6}>
-               <button onClick={boot}>Boot intercom! ☎️</button>;
-              {/*<CarouselProvider*/}
-              {/*    naturalSlideWidth={100}*/}
-              {/*    naturalSlideHeight={125}*/}
-              {/*    totalSlides={3}*/}
-              {/*>*/}
-              {/*  <Slider>*/}
-              {/*    <Slide index={0}>I am the first Slide.</Slide>*/}
-              {/*    <Slide index={1}>I am the second Slide.</Slide>*/}
-              {/*    <Slide index={2}>I am the third Slide.</Slide>*/}
-              {/*  </Slider>*/}
-              {/*  <ButtonBack>Back</ButtonBack>*/}
-              {/*  <ButtonNext>Next</ButtonNext>*/}
-              {/*</CarouselProvider>*/}
+
             </Grid>
         </Grid>
       </div>
